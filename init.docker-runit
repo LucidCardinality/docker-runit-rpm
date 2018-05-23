@@ -1,0 +1,19 @@
+#!/bin/sh
+PATH=/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+
+runpid=
+
+cleanup() {
+  echo "$(date) - Shutting down all services..."
+  sv force-stop /service/*
+  kill -HUP ${runpid}
+  echo "$(date) - Shut down all services."
+}
+
+trap cleanup 1 2 3 15
+
+echo "$(date) - Starting all services."
+env - PATH=$PATH \
+  runsvdir -P /service 'log: ...........................................................................................................................................................................................................................................................................................................................................................................................................' &
+runpid=$!
+wait
