@@ -28,9 +28,12 @@ cp -av %{SOURCE1} ${RPM_BUILD_ROOT}/usr/sbin
 mkdir -p ${RPM_BUILD_ROOT}/usr/share/man/man8
 cp -av man/* ${RPM_BUILD_ROOT}/usr/share/man/man8
 
+mkdir -p ${RPM_BUILD_ROOT}/service
+
 %files
 %doc package/README
 %license package/COPYING
+%dir /service
 /usr/sbin/chpst
 /usr/sbin/runit
 /usr/sbin/runit-init
