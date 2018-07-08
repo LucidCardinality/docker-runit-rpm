@@ -1,7 +1,7 @@
 Summary: runit packaged for use with Docker
 Name: docker-runit
 Version: 2.1.2
-Release: 1.lc%{?dist}
+Release: 2.lc%{?dist}
 License: BSD
 Source0: http://smarden.org/runit/runit-2.1.2.tar.gz
 Source1: init.docker-runit
